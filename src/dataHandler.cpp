@@ -47,6 +47,12 @@ void Settings::ReadSettings()
 	bOnKill = ini.GetBoolValue("Conditions", "bOnKill", true);
 	bIfDead = ini.GetBoolValue("Conditions", "bIfDead", true);
 	bIfBlocked = ini.GetBoolValue("Conditions", "bIfBlocked", false);
+	bOnKillmove = ini.GetBoolValue("Conditions", "bOnKillmove", false);
+
+	// Helmet conditions
+	bAllowNeckVisibleHelmets = ini.GetBoolValue("HelmetConditions", "bAllowNeckVisibleHelmets", true);
+	bAllowFullHelmets = ini.GetBoolValue("HelmetConditions", "bAllowFullHelmets", false);
+	bAlwaysExcludeHeavyHelmets = ini.GetBoolValue("HelmetConditions", "bAlwaysExcludeHeavyHelmets", false);
 
 	// WeaponTypes
 	bOneHandedSword = ini.GetBoolValue("WeaponTypes", "bOneHandedSword", true);

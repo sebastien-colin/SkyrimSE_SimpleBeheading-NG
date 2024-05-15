@@ -33,6 +33,12 @@ struct Settings
 	static inline bool bOnKill = true;
 	static inline bool bIfDead = true;
 	static inline bool bIfBlocked = false;
+	static inline bool bOnKillmove = false;
+
+	// Helmet conditions
+	static inline bool bAllowNeckVisibleHelmets = true;
+	static inline bool bAllowFullHelmets = false;
+	static inline bool bAlwaysExcludeHeavyHelmets = false;
 
 	// WeaponTypes
 	static inline bool bOneHandedSword = true;

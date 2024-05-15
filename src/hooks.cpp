@@ -45,9 +45,22 @@ bool hitEventHook::processHit(RE::Actor* target, RE::HitData& hitData)
 
 	// if (race->data.flags.any(RE::RACE_DATA::Flag::kAllowRagdollCollision)) return false;
 
+	// Checking worn helmet conditions
+	RE::TESObjectARMO* currentHelmet = target->GetWornArmor(RE::BGSBipedObjectForm::BipedObjectSlot::kHair);
+	if (currentHelmet) {
+		if (Settings::bAlwaysExcludeHeavyHelmets && currentHelmet->IsHeavyArmor()) return false;
+		if (currentHelmet == target->GetWornArmor(RE::BGSBipedObjectForm::BipedObjectSlot::kHead)) { // Full helmet
+			if (!Settings::bAllowFullHelmets) return false;
+		}
+		else { // Neck visible helmet
+			if (!Settings::bAllowNeckVisibleHelmets) return false;
+		}
+	}
+
 	// Checking conditions
 	if (Settings::bPlayerOnly && !aggressor->IsPlayerRef()) return false;
 	if (Settings::bPlayerImmune && target->IsPlayerRef()) return false;
+	if (!Settings::bOnKillmove && target->IsInKillMove()) return false;
 
 	bool isPowerAttack = hitData.flags.any(HITFLAG::kPowerAttack);
 	float randomChances = static_cast<float>(rand()) / RAND_MAX * 100.0f;
@@ -96,8 +109,6 @@ bool hitEventHook::processHit(RE::Actor* target, RE::HitData& hitData)
 	float distance = hitPos.GetDistance(headPos);
 	if (distance > Settings::fHitPrecision) return false;
 
-	logger::info("{} decapitated {}!", aggressor->GetName(), target->GetName());
-
 	if (Settings::bPlaySound) {
 		switch (weaponType) {
 		case RE::WEAPON_TYPE::kOneHandSword:
@@ -112,6 +123,8 @@ bool hitEventHook::processHit(RE::Actor* target, RE::HitData& hitData)
 	}
 
 	target->Decapitate();
+
+	logger::info("{} decapitated {}!", aggressor->GetName(), target->GetName());
 
 	return true;
 }
