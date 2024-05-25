@@ -1,5 +1,6 @@
 #include "hooks.h"
 #include "dataHandler.h"
+#include "papyrus.h"
 
 void MessageHandler(SKSE::MessagingInterface::Message* a_msg)
 {
@@ -14,4 +15,5 @@ void Load()
 {
 	SKSE::GetMessagingInterface()->RegisterListener("SKSE", MessageHandler);
 	hitEventHook::InstallHook();
+	SKSE::GetPapyrusInterface()->Register(papyrus::RegisterFunctions);
 }
