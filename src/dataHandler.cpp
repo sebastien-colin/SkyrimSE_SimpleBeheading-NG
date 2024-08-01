@@ -48,6 +48,7 @@ void Settings::ReadSettings()
 	bIfDead = ini.GetBoolValue("Conditions", "bIfDead", true);
 	bIfBlocked = ini.GetBoolValue("Conditions", "bIfBlocked", false);
 	bOnKillmove = ini.GetBoolValue("Conditions", "bOnKillmove", false);
+	bExcludeUniqueNPC = ini.GetBoolValue("Conditions", "bExcludeUniqueNPC", false);
 
 	// Helmet conditions
 	bAllowNeckVisibleHelmets = ini.GetBoolValue("HelmetConditions", "bAllowNeckVisibleHelmets", true);
@@ -59,6 +60,7 @@ void Settings::ReadSettings()
 	bTwoHandedSword = ini.GetBoolValue("WeaponTypes", "bTwoHandedSword", true);
 	bOneHandedAxe = ini.GetBoolValue("WeaponTypes", "bOneHandedAxe", true);
 	bTwoHandedAxe = ini.GetBoolValue("WeaponTypes", "bTwoHandedAxe", true);
+	bTwoHandedMace = ini.GetBoolValue("WeaponTypes", "bTwoHandedMace", false);
 	bDagger = ini.GetBoolValue("WeaponTypes", "bDagger", false);
 	bMace = ini.GetBoolValue("WeaponTypes", "bMace", false);
 	bRanged = ini.GetBoolValue("WeaponTypes", "bRanged", false);

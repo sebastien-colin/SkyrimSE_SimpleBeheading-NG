@@ -61,6 +61,7 @@ bool hitEventHook::processHit(RE::Actor* target, RE::HitData& hitData)
 	if (Settings::bPlayerOnly && !aggressor->IsPlayerRef()) return false;
 	if (Settings::bPlayerImmune && target->IsPlayerRef()) return false;
 	if (!Settings::bOnKillmove && target->IsInKillMove()) return false;
+	if (Settings::bExcludeUniqueNPC && target->GetActorBase()->IsUnique()) return false;
 
 	bool isPowerAttack = hitData.flags.any(HITFLAG::kPowerAttack);
 	float randomChances = static_cast<float>(rand()) / RAND_MAX * 100.0f;
@@ -74,7 +75,10 @@ bool hitEventHook::processHit(RE::Actor* target, RE::HitData& hitData)
 	RE::WEAPON_TYPE weaponType = RE::WEAPON_TYPE::kHandToHandMelee;
 	if (hitData.weapon) {
 		weaponType = hitData.weapon->GetWeaponType();
-		if (weaponType == RE::WEAPON_TYPE::kOneHandSword) {
+		if (hitData.weapon->HasKeywordString("WeapTypeWarhammer")) {
+			if (!Settings::bTwoHandedMace) return false;
+		}
+		else if (weaponType == RE::WEAPON_TYPE::kOneHandSword) {
 			if (!Settings::bOneHandedSword) return false;
 		}
 		else if (weaponType == RE::WEAPON_TYPE::kTwoHandSword) {

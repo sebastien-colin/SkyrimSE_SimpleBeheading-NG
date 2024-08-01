@@ -34,6 +34,7 @@ struct Settings
 	static inline bool bIfDead = true;
 	static inline bool bIfBlocked = false;
 	static inline bool bOnKillmove = false;
+	static inline bool bExcludeUniqueNPC = false;
 
 	// Helmet conditions
 	static inline bool bAllowNeckVisibleHelmets = true;
@@ -45,6 +46,7 @@ struct Settings
 	static inline bool bTwoHandedSword = true;
 	static inline bool bOneHandedAxe = true;
 	static inline bool bTwoHandedAxe = true;
+	static inline bool bTwoHandedMace = false;
 	static inline bool bDagger = false;
 	static inline bool bMace = false;
 	static inline bool bRanged = false;
