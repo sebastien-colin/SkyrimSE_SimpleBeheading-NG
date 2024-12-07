@@ -1,10 +1,11 @@
 {
-"name": "commonlibsse-plugin",
-  "version-string": "1.0.0",
-  "description": "",
-  "license": "MIT",
-  "dependencies": [
-    "commonlibsse-ng",
-    "simpleini"
-  ]
+    "builtin-baseline": "099fb9250d916511782bf5215f01f2e7141beb3a",
+    "dependencies": [
+        "clib-util",
+        "directxtk",
+        "rapidcsv",
+        "spdlog",
+        "xbyak",
+        "magic-enum"
+    ]
 }

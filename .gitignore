@@ -1,2 +1,4 @@
-build/
-.vs*/
+[Bb]uild/
+.vs/
+.vscode/
+CMakeUserPresets.json

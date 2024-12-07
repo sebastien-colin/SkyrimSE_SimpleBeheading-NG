@@ -1,6 +1,6 @@
 #pragma once
 
-class Utils
+class MiscUtils
 {
 	public:
 
@@ -35,7 +35,7 @@ class Utils
 	/*Play sound with formid at a certain actor's position.
 	@param a: actor on which to play sonud.
 	@param formid: formid of the sound descriptor.*/
-	static void playSound(RE::Actor* a, RE::BGSSoundDescriptorForm* a_descriptor)
+	static void PlaySound(RE::Actor* a, RE::BGSSoundDescriptorForm* a_descriptor)
 	{
 		RE::BSSoundHandle handle;
 		handle.soundID = static_cast<uint32_t>(-1);
