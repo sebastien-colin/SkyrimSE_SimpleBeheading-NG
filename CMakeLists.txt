@@ -2,12 +2,12 @@ cmake_minimum_required(VERSION 3.26)
 
 project(
   SimpleBeheading
-  VERSION 1.0.4
+  VERSION 1.0.5
   LANGUAGES CXX
 )
   
 set(PROJECT_LICENSE "")
-set(PROJECT_COPYRIGHT "Copyright (c) 2024")
+set(PROJECT_COPYRIGHT "Copyright (c) 2025")
 set(PROJECT_FRIENDLY_NAME ${PROJECT_NAME})
 set(PROJECT_LONG_NAME "Simple Beheading binaries")
 set(PROJECT_DESCRIPTION ${PROJECT_LONG_NAME})

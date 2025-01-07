@@ -93,6 +93,8 @@ namespace Events
 				RE::TESRace* race = target->GetRace();
 				if (!race) return false;
 
+				if (!race->HasKeywordString("ActorTypeNPC")) return false;
+
 				if (ModData::DataHandler::NextGenDecapitationsEnabled) {
 					if (NGDecapitationsAPI::g_API->IsDecapitated(target)) return false;
 				} else {
